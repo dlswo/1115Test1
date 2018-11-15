@@ -16,3 +16,9 @@ spring:
     
   thymeleaf:
     cache: false
+    
+logging:
+  level:
+    org:
+      hibernate: ERROR
+    
