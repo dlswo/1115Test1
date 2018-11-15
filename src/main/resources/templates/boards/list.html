@@ -40,15 +40,21 @@
 		
 			<th:block th:with="prev=${current.previous()}">
 			
+				<th:block th:with="prev2=${prev.previous()}">
+					<li class="page-item" th:if="${prev.hasPrevious()}" ><a class="page-link" href="#">[[${prev2.pageNumber + 1}]]</a></li>
+				</th:block>
+				
 			  <li class="page-item" th:if="${result.hasPrevious()}" ><a class="page-link" href="#">[[${prev.pageNumber + 1}]]</a></li>
-			  
 			</th:block>			
 			
 			<li class="page-item active"><a class="page-link" href="#">[[${current.pageNumber + 1}]]</a></li>
 			
 			<th:block th:with="next=${current.next()}">
-			
-			<li class="page-item" th:if="${result.hasNext()}"><a class="page-link" href="#">[[${next.pageNumber + 1}]]</a></li>
+				<li class="page-item" th:if="${result.hasNext()}"><a class="page-link" href="#">[[${next.pageNumber + 1}]]</a></li>
+				
+				<th:block th:with="next2=${next.next()}">
+					<li class="page-item" th:if="${next2.isPaged()}"><a class="page-link" href="#">[[${next2.pageNumber + 1}]]</a></li>
+				</th:block>
 			
 			</th:block>
 			
